@@ -41,11 +41,25 @@ for i in range(len(contornos)):
     text = cy , cx
     
     if i == 0:
-        origem = (730, 400)
+        origem = (730, 350)
     else:
-        origem = (50, 50)
+        origem = (230, 50)
 
     cv2.putText(contorno, str(text), origem, font,1,(200,50,0),2,cv2.LINE_AA)
+
+# Calculando Area dos Circulos
+img_r = cv2.imread('circulos.png', 0)
+img_r = cv2.medianBlur(img_r,5)
+cimg = cv2.cvtColor(img_r,cv2.COLOR_GRAY2BGR)
+circles = cv2.HoughCircles(img_r,cv2.HOUGH_GRADIENT,1,40,param1=60,param2=50,minRadius=110,maxRadius=200)
+circles = np.uint16(np.around(circles))
+count = 0
+for i in circles[0,:]:
+    area = 3.14159 * i[2] * i[2]
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    origem = ((730,400), (230,100))
+    cv2.putText(contorno, str(area), origem[count], font,1,(200,50,0),2,cv2.LINE_AA)
+    count = count + 1
 
 # Print
 plt.figure(figsize=(10,10))
