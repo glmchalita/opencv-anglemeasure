@@ -1,6 +1,7 @@
 import cv2
 from matplotlib import pyplot as plt
 import numpy as np
+import math
 
 img = cv2.imread('circulos.png')
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -23,7 +24,7 @@ target = cv2.bitwise_and(img_rgb,img_rgb, mask=mask)
 contornos, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
 mask_rgb = cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB) 
 contorno = mask_rgb.copy()
-cv2.drawContours(contorno, contornos, -1, [0, 0, 255], 10);
+cv2.drawContours(contorno, contornos, -1, [0, 0, 255], 10)
 
 # Centro de Massa
 for i in range(len(contornos)):
@@ -58,10 +59,21 @@ for i in circles[0,:]:
     area = 3.14159 * i[2] * i[2]
     font = cv2.FONT_HERSHEY_SIMPLEX
     origem = ((730,400), (230,100))
-    cv2.putText(contorno, str(area), origem[count], font,1,(200,50,0),2,cv2.LINE_AA)
+    cv2.putText(contorno, str('{:.2f}'.format(area)), origem[count], font,1,(200,50,0),2,cv2.LINE_AA)
     count = count + 1
 
+# Reta
+cv2.line(contorno, (142, 177), (816, 534), (255, 0, 0), 3)
+cv2.line(contorno, (816, 534), (999, 534), (255, 0, 0), 3)
+
+# Angulo
+h = 674
+x = 357
+y = np.degrees(math.atan(1.88))
+angle = (180 - y - 90) + 90
+cv2.putText(contorno, str('{:.2f}'.format(angle)), (400,400), font,1,(200,50,0),2,cv2.LINE_AA)
+
 # Print
-plt.figure(figsize=(10,10))
+plt.figure(figsize=(10, 10))
 plt.imshow(contorno, cmap="Greys_r", vmin=0, vmax=255)
 plt.show()
