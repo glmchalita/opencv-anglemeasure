@@ -1,45 +1,56 @@
+
 # NAC1 - Python e OpenCV
 
-**Guilherme Chalita** 
-
+**Guilherme Chalita**
 **2SIA**
-
 **2022**
+
 
 ## Objetivo / descrição do Projeto
 
-...
+Processamento de imagens usando Python e OpenCV. Calcular o ângulo, através do vídeo da webcam, formado pela reta entre as duas maiores circuferências da imagem *circulos.png* e apresentar o resultado.
 
 
-## Como usar 
+## Como usar
 
-Explique como rodar o seu projeto. Quais programas instalar, como configurar... 
+Para testar o projeto primeiro precisa clona-lo em seu diretório:
 
-* Pode ser utilizado marcadores
-* Para ajudar na formatação
+> cd /user/pasta 
+> git clone https://github.com/glmchalita/opencv-nac1.git
+> cd opencv-nac1
+> dir
 
-Ou qualquer outra tabulação:
+e instalar as bibliotecas do *requirements.txt*:
+>  pip install -r /diretório/pasta/requirements.txt
 
-- [x] Youtube
-- [ ] Facebook 
-- [x] Instagram
+Após isso basta imprimir a imagem *circulos.png* e executar o arquivo *webcam.py*.
 
-Pode adicionar algum trecho de código, por exemplo para clonar esse repositório:
+Irá ser necessário realizar ajustes no alcance do HSV:
 
-    cd /home/iot
-    git clone https://github.com/arnaldojr/templatenac
-    cd templatenac
-    ls
+    # Mask Circuferência Esquerda
+    
+    left_lower = np.array([34, 32, 93])
+    left_upper = np.array([95, 184, 217])
+    left_mask = cv2.inRange(img, left_lower, left_upper)
+    
+    # Mask Circuferência Direita
+    
+    right_lower = np.array([105, 139, 30])
+    right_upper = np.array([179, 255, 255])
+    right_mask = cv2.inRange(img, right_lower, right_upper)
+Como auxílio poderá usar a Trackbar, que está comentada no código, e procurar o melhor alcance para o seu vídeo.
+
+## Demonstração em vídeo
+
+Pequena demonstração do projeto em funcionamento.
+
+[Vídeo](https://youtu.be/HQXQnYQGhAw)
 
 
-## Link de vídeo demonstração
+### Referências
 
-Adicione o link para assistir ao vídeo do projeto funcionando.
+* [Como usar duas máscaras .inRange()](https://stackoverflow.com/questions/48109650/how-to-detect-two-different-colors-using-cv2-inrange-in-python-opencv)
 
-[Link para o video youtube](https://www.youtube.com/watch?v=xva71wynxS0)
+* [Como calcular área de uma circuferência usando .HoughCircles()](https://stackoverflow.com/questions/62151611/how-can-i-calculate-the-area-of-a-circle-which-i-detected-with-cv2-houghcircles)
 
-
-### Referências 
-
-* [mastering-markdown](https://guides.github.com/features/mastering-markdown/)
-* [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [OpenCV Trackbars](https://youtu.be/SJCu1d4xakQ)
