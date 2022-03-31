@@ -3,7 +3,7 @@
 
 ## Objetivo / descrição do Projeto
 
-Processamento de imagens usando Python e OpenCV. Calcular o ângulo, através do vídeo da webcam, formado pela reta entre as duas maiores circuferências da imagem *circulos.png* e apresentar o resultado.
+Processamento de imagens usando Python e OpenCV. Calcular o ângulo, através do vídeo da webcam, formado pela reta entre as duas maiores circunferências da imagem *circulos.png* e apresentar o resultado.
 
 
 ## Como usar
@@ -22,13 +22,13 @@ Após isso basta imprimir a imagem *circulos.png* e executar o arquivo *webcam.p
 
 Irá ser necessário realizar ajustes no alcance do HSV:
 
-    # Mask Circuferência Esquerda
+    # Mask Circunferência Esquerda
     
     left_lower = np.array([34, 32, 93])
     left_upper = np.array([95, 184, 217])
     left_mask = cv2.inRange(img, left_lower, left_upper)
     
-    # Mask Circuferência Direita
+    # Mask Circunferência Direita
     
     right_lower = np.array([105, 139, 30])
     right_upper = np.array([179, 255, 255])
@@ -46,6 +46,6 @@ Pequena demonstração do projeto em funcionamento.
 
 * [Como usar duas máscaras .inRange()](https://stackoverflow.com/questions/48109650/how-to-detect-two-different-colors-using-cv2-inrange-in-python-opencv)
 
-* [Como calcular área de uma circuferência usando .HoughCircles()](https://stackoverflow.com/questions/62151611/how-can-i-calculate-the-area-of-a-circle-which-i-detected-with-cv2-houghcircles)
+* [Como calcular área de uma circunferência usando .HoughCircles()](https://stackoverflow.com/questions/62151611/how-can-i-calculate-the-area-of-a-circle-which-i-detected-with-cv2-houghcircles)
 
 * [OpenCV Trackbars](https://youtu.be/SJCu1d4xakQ)
