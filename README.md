@@ -2,7 +2,7 @@
 # NAC1 - Python e OpenCV
 
 **Guilherme Chalita**
-**2SIA**
+**4SIA**
 **2022**
 
 
