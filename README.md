@@ -1,10 +1,5 @@
 
-# NAC1 - Python e OpenCV
-
-**Guilherme Chalita**
-**4SIA**
-**2022**
-
+# Python e OpenCV
 
 ## Objetivo / descrição do Projeto
 
