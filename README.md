@@ -15,9 +15,9 @@ Processamento de imagens usando Python e OpenCV. Calcular o ângulo, através do
 
 Para testar o projeto primeiro precisa clona-lo em seu diretório:
 
-> cd /user/pasta 
-> git clone https://github.com/glmchalita/opencv-nac1.git
-> cd opencv-nac1
+> cd /user/pasta<br>
+> git clone https://github.com/glmchalita/opencv-nac1.git<br>
+> cd opencv-nac1<br>
 > dir
 
 e instalar as bibliotecas do *requirements.txt*:
